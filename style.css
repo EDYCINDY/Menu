@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    font-family: 'Arial Black', sans-serif; /* Font default jika font keren gagal dimuat */
+    background: url('1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #deee06;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Efek bayangan pada judul */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav li {
+    margin: 0.5rem 0;
+}
+
+nav a {
+    display: block;
+    width: 220px; /* Sesuaikan lebar tombol */
+    height: 90px; /* Sesuaikan tinggi tombol */
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.4rem; /* Ukuran font yang lebih besar */
+    font-weight: bold; /* Tebalkan teks */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Efek bayangan pada teks */
+    border-radius: 10px; /* Sudut yang lebih bulat */
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+
+    /* Background gambar kayu */
+    background-image: url('3.png');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    line-height: 90px; /* Sesuaikan dengan tinggi tombol */
+
+     /* Efek "berlampu halus" */
+    position: relative;
+    overflow: hidden; /* Penting untuk efek overflow */
+}
+
+/* Efek "berlampu halus" (pseudo-element) */
+nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) , rgba(255, 255, 255, 0.3));
+    transform: skewX(-25deg);
+    transition: all 0.5s;
+}
+
+nav a:hover {
+    transform: scale(1.05);
+}
+
+nav a:hover::before {
+    left: 150%; /* Geser efek cahaya saat dihover */
+}
+
+/* Gaya untuk layar sentuh */
+@media (pointer: coarse) {
+    nav a {
+        width: 270px; /* Sesuaikan lebar tombol untuk sentuhan */
+        height: 110px; /* Sesuaikan tinggi tombol untuk sentuhan */
+        font-size: 1.6rem;
+        line-height: 110px;
+    }
+
+    nav a:hover {
+        transform: none;
+    }
+
+    nav a:active {
+        opacity: 0.8;
+    }
+}
