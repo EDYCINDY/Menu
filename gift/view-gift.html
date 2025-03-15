@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lihat Hadiah</title>
+    <!-- Favicon -->
+    <link rel="icon" href="hadia.png" type="image/x-icon">
+    <!-- Atau, jika menggunakan PNG -->
+    <!-- <link rel="icon" href="favicon.png" type="image/png"> -->
+    <!-- Atau, jika menggunakan SVG -->
+    <!-- <link rel="icon" href="favicon.svg" type="image/svg+xml"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f7f8fc;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            text-shadow: #333;
+        }
+
+        .gift-card {
+            background-image: url(kertas.jpg);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 600px;
+            overflow: hidden;
+            position: relative;
+            
+            /* Animasi Neon */
+            animation: neon-glow 3s ease-in-out infinite alternate;
+        }
+
+        /* Keyframes Animation */
+        @keyframes neon-glow {
+            0% {
+                box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+            }
+
+            25% {
+                box-shadow: 0 0 10px #f0f, 0 0 20px #f0f, 0 0 30px #f0f;
+            }
+
+            50% {
+                box-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0;
+            }
+
+            75% {
+                box-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+            }
+
+            100% {
+                box-shadow: 0 0 10px #00f, 0 0 20px #00f, 0 0 30px #00f;
+            }
+        }
+
+        .gift-header {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .gift-header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .gift-image-container {
+            position: relative;
+            overflow: hidden;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .gift-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gift-body {
+            padding: 20px;
+        }
+
+        p {
+            color: hsl(244, 96%, 49%);
+            font-size: 25px;
+            text-align: center;
+            text-shadow: #333;
+            font-weight: bold;
+        }
+
+        .gift-message {
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: hsl(300, 89%, 33%);
+            font-weight: bold;
+            text-shadow: #333;
+        }
+
+        .gift-music {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .gift-music i {
+            margin-right: 5px;
+            text-align: center;
+        }
+
+        .share-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .share-buttons a {
+            display: inline-block;
+            background-color: #3b5998; /* Facebook Blue */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .share-buttons a:hover {
+            background-color: #2d4373;
+        }
+
+        /* Label di sudut kanan atas */
+        .top-right-label {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #f00; /* Warna latar belakang label */
+            color: white; /* Warna teks label */
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            z-index: 10; /* Pastikan label berada di atas elemen lain */
+        }
+
+        /* Ikon di dalam label */
+        .top-right-label i {
+            margin-right: 5px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 600px) {
+            .gift-header {
+                padding: 20px;
+            }
+
+            .gift-header h1 {
+                font-size: 24px;
+            }
+
+            .gift-image-container {
+                width: 120px;
+                height: 120px;
+            }
+
+            .gift-message {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gift-card" id="gift-details">
+        <!-- Label di sudut kanan atas -->
+        <div class="top-right-label">
+            <i class="fas fa-gift"></i> HADIAH
+        </div>
+        <div class="gift-header">
+            <h1>Hadiah Spesial!</h1>
+            <div class="gift-image-container">
+                <img src="" alt="Gambar Hadiah" class="gift-image" id="gift-image">
+            </div>
+        </div>
+        <div class="gift-body">
+            <p>Buat <span id="gift-recipient"></span></p>
+            <p class="gift-message" id="gift-message"></p>
+            <p class="gift-music"><i class="fas fa-music"></i>Musik: <span id="gift-music"></span></p>
+            <audio controls id="gift-audio"></audio>
+
+
+            <div class="share-buttons">
+                <a href="#" onclick="shareOnFacebook()">
+                    <i class="fab fa-facebook"></i> Bagikan di Facebook
+                </a>
+                <a href="#" onclick="shareGift()">
+                    <i class="fas fa-share-alt"></i> Bagikan Lainnya
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const giftId = urlParams.get('id');
+
+            if (giftId) {
+                const giftData = localStorage.getItem(giftId);
+
+                if (giftData) {
+                    const gift = JSON.parse(giftData);
+
+                    document.getElementById('gift-recipient').innerText = gift.recipientName;
+                    document.getElementById('gift-message').innerText = gift.message || "Tidak ada pesan.";
+
+                    const imageElement = document.getElementById('gift-image');
+                    imageElement.src = gift.image; // Set the src attribute
+
+                    // Display the music file name
+                    const musicElement = document.getElementById('gift-music');
+                    musicElement.innerText = gift.musicFile || "Tidak ada musik dipilih";
+
+                    // Audio playback simulation
+                    const audioElement = document.getElementById('gift-audio');
+                    if (gift.musicFile) {
+                        // You would need to load the actual audio file here.
+                        // In a real scenario, you'd have a URL to the music file.
+                        audioElement.src = gift.musicFile; // Assign the simulated music file path
+                        audioElement.controls = true;
+                    } else {
+                        audioElement.style.display = 'none'; // Hide the audio element if no music
+                    }
+
+                } else {
+                    document.getElementById('gift-details').innerHTML = '<p>Hadiah tidak ditemukan.</p>';
+                }
+            } else {
+                document.getElementById('gift-details').innerHTML = '<p>ID hadiah tidak valid.</p>';
+            }
+        });
+
+        function shareOnFacebook() {
+            const giftUrl = window.location.href; // URL of the gift page
+            const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(giftUrl)}`;
+            window.open(facebookShareUrl, '_blank');
+        }
+
+        function shareGift() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Hadiah Spesial untukmu!',
+                    text: 'Lihat hadiah yang telah disiapkan untukmu.',
+                    url: window.location.href,
+                })
+                    .then(() => console.log('Berhasil dibagikan'))
+                    .catch((error) => console.log('Error berbagi:', error));
+            } else {
+                alert('Fitur berbagi tidak didukung di browser ini.');
+            }
+        }
+    </script>
+</body>
+
+</html>
