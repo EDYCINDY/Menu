@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artikel - Blog Modern Anda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/" class="site-identity">
+                <h1>Nama Blog</h1>
+            </a>
+            <nav class="site-navigation">
+                <ul class="nav">
+                    <li class="nav-item"><a href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a href="about.html">Tentang</a></li>
+                    <li class="nav-item"><a href="articles.html">Artikel</a></li>
+                    <li class="nav-item"><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Halaman Artikel -->
+    <div id="articles" class="page-section">
+        <div class="container">
+            <h2 class="section-title">Artikel</h2>
+            <!-- Daftar artikel di sini -->
+            <article class="post">
+                <header class="post-header">
+                    <h2 class="post-title"><a href="#">Judul Artikel Pertama</a></h2>
+                    <div class="post-meta">
+                        <span class="post-author">Diposting oleh <a href="#">Nama Penulis</a></span>
+                        <span class="post-date"> pada <time datetime="2023-10-27">27 Oktober 2023</time></span>
+                    </div>
+                </header>
+                <div class="post-content">
+                    <img src="gambar-artikel.jpg" alt="Gambar Artikel" class="post-image">
+                    <p>Isi artikel pertama. Lorem ipsum dolor sit amet...</p>
+                    <a href="#" class="button">Baca Selengkapnya</a>
+                </div>
+            </article>
+
+            <article class="post">
+                <header class="post-header">
+                    <h2 class="post-title"><a href="#">Judul Artikel Kedua</a></h2>
+                    <div class="post-meta">
+                        <span class="post-author">Diposting oleh <a href="#">Nama Penulis</a></span>
+                        <span class="post-date"> pada <time datetime="2023-10-26">26 Oktober 2023</time></span>
+                    </div>
+                </header>
+                <div class="post-content">
+                    <img src="gambar-artikel-2.jpg" alt="Gambar Artikel Kedua" class="post-image">
+                    <p>Isi artikel kedua. Contoh isi artikel dengan paragraf yang lebih panjang...</p>
+                    <a href="#" class="button">Baca Selengkapnya</a>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2023 Nama Blog Anda. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.site-navigation');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('is-active');
+        });
+    </script>
+
+</body>
+</html>

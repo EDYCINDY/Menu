@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Blog Modern Anda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/" class="site-identity">
+                <h1>Nama Blog</h1>
+            </a>
+            <nav class="site-navigation">
+                <ul class="nav">
+                    <li class="nav-item"><a href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a href="about.html">Tentang</a></li>
+                    <li class="nav-item"><a href="articles.html">Artikel</a></li>
+                    <li class="nav-item"><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Halaman Kontak -->
+    <div id="contact" class="page-section">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <!-- Formulir kontak atau informasi kontak di sini -->
+            <p>Anda dapat menghubungi kami melalui formulir di bawah ini atau melalui email di alamat [email protected]</p>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2023 Nama Blog Anda. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.site-navigation');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('is-active');
+        });
+    </script>
+
+</body>
+</html>

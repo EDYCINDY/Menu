@@ -1,0 +1,322 @@
+/* Reset CSS (optional, but recommended) */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    /* Font yang lebih modern */
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    width: 85%;
+    /* Lebih lebar untuk tata letak yang lebih lapang */
+    margin: 0 auto;
+    max-width: 1200px;
+    /* Batas lebar maksimum */
+}
+
+/* Header */
+.site-header {
+    background-color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Efek bayangan halus */
+    position: sticky;
+    /* Membuat header tetap di atas saat di-scroll */
+    top: 0;
+    z-index: 100;
+    /* Memastikan header berada di atas konten lain */
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-identity h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Navigasi */
+.site-navigation .nav {
+    list-style: none;
+    display: flex;
+}
+
+.site-navigation .nav-item {
+    margin-left: 20px;
+}
+
+.site-navigation .nav-item a {
+    text-decoration: none;
+    color: #555;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    /* Efek transisi halus */
+}
+
+.site-navigation .nav-item a:hover {
+    background-color: #f2f2f2;
+}
+
+/* Hamburger Menu (untuk mobile) */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    /* Sembunyikan secara default di desktop */
+}
+
+/* Content Area */
+.content-area {
+    display: flex;
+    padding: 40px 0;
+}
+
+/* Main Content */
+.site-main {
+    width: 70%;
+    padding-right: 30px;
+}
+
+.post {
+    background-color: #fff;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* Efek bayangan yang lebih halus */
+    overflow: hidden;
+    /* Mencegah konten meluap dari border-radius */
+}
+
+.post-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.post-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.post-title a {
+    color: #333;
+    text-decoration: none;
+}
+
+.post-meta {
+    font-size: 14px;
+    color: #777;
+}
+
+.post-meta span {
+    margin-right: 15px;
+}
+
+.post-content {
+    padding: 20px;
+}
+
+.post-image {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    object-fit: cover;
+    /* Memastikan gambar selalu mengisi area */
+    max-height: 400px;
+    /* Batasi tinggi gambar */
+}
+
+/* Tombol */
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff;
+    /* Warna biru modern */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Sidebar */
+.site-sidebar {
+    width: 30%;
+}
+
+.widget {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.widget-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.category-list {
+    list-style: none;
+}
+
+.category-list li {
+    margin-bottom: 8px;
+}
+
+.category-list li a {
+    color: #555;
+    text-decoration: none;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.category-list li a:hover {
+    background-color: #f2f2f2;
+}
+
+/* Ikon Sosial */
+.social-icons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.social-icon {
+    font-size: 20px;
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #007bff;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-area {
+        flex-direction: column;
+        /* Tumpuk konten dan sidebar */
+    }
+
+    .site-main,
+    .site-sidebar {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        /* Tampilkan hamburger menu di mobile */
+    }
+
+    .site-navigation {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: none;
+        /* Sembunyikan menu secara default di mobile */
+    }
+
+    .site-navigation.is-active {
+        display: block;
+        /* Tampilkan menu saat tombol hamburger diklik */
+    }
+
+    .site-navigation .nav {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .site-navigation .nav-item {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .site-navigation .nav-item a {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* ... (CSS sebelumnya) ... */
+
+    /* Styling untuk Judul Halaman (Tentang, Artikel, Kontak) */
+    .page-section {
+        padding: 60px 0;
+        /* Ruang atas dan bawah yang lebih besar */
+    }
+
+    .section-title {
+        font-size: 36px;
+        /* Ukuran font yang lebih besar */
+        font-weight: 700;
+        /* Ketebalan font yang lebih tegas */
+        margin-bottom: 30px;
+        text-align: center;
+        /* Pusatkan judul */
+        position: relative;
+        /* Untuk positioning garis bawah */
+        color: #333;
+        /* Warna judul utama */
+        padding-bottom: 15px;
+        /* Ruang untuk garis bawah */
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 50px;
+        /* Panjang garis bawah */
+        height: 3px;
+        /* Ketebalan garis bawah */
+        background-color: #007bff;
+        /* Warna aksen garis bawah */
+        transform: translateX(-50%);
+        /* Pusatkan garis bawah */
+        transition: width 0.3s ease;
+        /* Animasi lebar */
+    }
+
+    .section-title:hover::after {
+        width: 100px;
+        /* Garis bawah memanjang saat dihover */
+    }
+}
