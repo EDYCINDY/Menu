@@ -8,10 +8,16 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "https://github.com/EDYCINDY/Menu/blob/main/my512x512.jpg?raw=true",
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "android-chrome-192x192.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ]
 }
+
 
