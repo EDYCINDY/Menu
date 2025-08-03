@@ -11,19 +11,22 @@
     
     <title>Menu</title>
      <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- Atau, jika menggunakan PNG -->
+   <link href='./favicon.ico' rel='image_src' />
+     <!-- Atau, jika menggunakan PNG -->
     <!-- <link rel="icon" href="favicon.png" type="image/png"> -->
     <!-- Atau, jika menggunakan SVG -->
     <!-- <link rel="icon" href="favicon.svg" type="image/svg+xml"> -->
-    
 
-    <!--====== Favicon Icon ======-->
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
-    <link rel="icon" type="image/x-icon" sizes="32x32" href="favicon.ico">
-    <link rel="icon" type="image/x-icon" sizes="16x16" href="favicon.ico">
-    <link rel="manifest" href="webmanifest">
+
+  <link href='./android-chrome-512x512.png' rel='apple-touch-icon' sizes='152x152' />
+  <link href='./favicon.ico' rel='icon' type='image/x-icon' />
+  <link href='./favicon.ico' rel='shortcut icon' type='image/x-icon' />
     
+    <!--====== Favicon Icon ======-->
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="webmanifest">    
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Menu Pilihan">
@@ -53,6 +56,11 @@
     
 </head>
 <body>
+    <div id="install-container" class="install-prompt hidden">
+        <p>Install Aplikasi Menu untuk pengalaman terbaik!</p>
+        <button id="install-button" class="tombol-install">Install Sekarang</button>
+      </div>
+
     <div class="container">
         <header>
             <h1>Pilih Menu</h1>
@@ -114,6 +122,74 @@
             </ul>
         </nav>
     </div>
+    <script>
+         // --- LOGIKA PWA UPDATE NOTIFICATION ---
+        let newWorker;
+        function showUpdateNotification() {
+            const notification = document.getElementById('updateNotification');
+            const reloadButton = document.getElementById('reloadButton');
+            notification.style.display = 'flex';
+            reloadButton.addEventListener('click', () => {
+                newWorker.postMessage({ action: 'skipWaiting' });
+            });
+        }
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js').then(reg => {
+                if (reg.waiting) {
+                    newWorker = reg.waiting;
+                    showUpdateNotification();
+                    return;
+                }
+                reg.addEventListener('updatefound', () => {
+                    newWorker = reg.installing;
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            showUpdateNotification();
+                        }
+                    });
+                });
+            }).catch(error => {
+                console.log('Registrasi Service Worker gagal:', error);
+            });
+            let refreshing;
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                if (refreshing) return;
+                window.location.reload();
+                refreshing = true;
+            });
+        }
+
+        // --- LOGIKA PROMPT INSTALASI KUSTOM ---
+        let deferredPrompt;
+        const installContainer = document.getElementById('install-container');
+        const installButton = document.getElementById('install-button');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installContainer.classList.remove('hidden');
+        });
+
+        installButton.addEventListener('click', async () => {
+            installContainer.classList.add('hidden');
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`Respons pengguna: ${outcome}`);
+                deferredPrompt = null;
+            }
+        });
+
+        window.addEventListener('appinstalled', () => {
+            console.log('Aplikasi berhasil di-install!');
+            installContainer.classList.add('hidden');
+            deferredPrompt = null;
+        });
+    </script>
+    
+    <!-- Script ini biarkan terpisah jika memang ada -->
+    <script src="main.js" defer></script>
 </body>
 </html>
+
 
