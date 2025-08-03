@@ -42,6 +42,58 @@
     <meta name="twitter:image" content="favicon.ico"> <!-- Ganti dengan URL gambar yang diinginkan -->
     <meta name="twitter:url" content="https://edycindy.github.io/Menu/">
 
+    <style>
+        /* [TAMBAHKAN INI] GAYA UNTUK PROMPT INSTALASI KUSTOM */
+        .install-prompt {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #007bff;
+            /* Warna biru yang menarik perhatian */
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            z-index: 2000;
+            /* Pastikan di atas notifikasi update */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 500px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .install-prompt.hidden {
+            display: none;
+        }
+
+        .install-prompt p {
+            margin: 0;
+            padding-right: 20px;
+            color: white;
+            font-weight: 500;
+        }
+
+        .tombol-install {
+            background-color: #ffffff;
+            color: #007bff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            white-space: nowrap;
+            /* Mencegah teks tombol terpotong */
+            transition: background-color 0.2s;
+        }
+
+        .tombol-install:hover {
+            background-color: #f0f0f0;
+        }
+        </style>
+
     <script>
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('service-worker.js')
@@ -191,5 +243,6 @@
     <script src="main.js" defer></script>
 </body>
 </html>
+
 
 
