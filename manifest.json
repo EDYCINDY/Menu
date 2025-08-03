@@ -8,14 +8,10 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "https://github.com/EDYCINDY/Menu/blob/main/my192x192.jpg?raw=true",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
       "src": "https://github.com/EDYCINDY/Menu/blob/main/my512x512.jpg?raw=true",
       "sizes": "512x512",
       "type": "image/png"
     }
   ]
 }
+
